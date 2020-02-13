@@ -54,7 +54,11 @@
              <artifactId>firebase-admin</artifactId>
              <version>6.12.1</version>
         </dependency>
-        
+        <dependency>
+ 			 <groupId>org.apache.httpcomponents</groupId>
+ 			 <artifactId>httpclient</artifactId>
+ 			 <scope>test</scope>
+         </dependency>
 		
 		
 		

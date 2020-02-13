@@ -9,7 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 
-import com.spring.project.carparking.location.CarparkingLocation;
+//import com.spring.project.carparking.location.CarparkingLocation;
 
 @Entity
 public class CarparkingSlot {

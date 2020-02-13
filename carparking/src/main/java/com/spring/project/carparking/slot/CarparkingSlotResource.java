@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -30,7 +32,6 @@ import io.swagger.annotations.ApiOperation;
 
 @CrossOrigin(origins="*")
 @RestController
-@RequestMapping(path = "/")
 public class CarparkingSlotResource {
 
 	@Autowired
@@ -39,20 +40,24 @@ public class CarparkingSlotResource {
 	
 
 	
-	
+	@RequestMapping(path = "/something", method = RequestMethod.GET)
+
 	@GetMapping("/slot/{slot}")
 	@ApiOperation(value="finds specific slot ",
 	notes="displays the specific values",
 	response=CarparkingSlot.class)
-	
+	@ResponseBody
 	public CarparkingSlot retrieveCarparkingSlot(@RequestHeader() String slot) throws InterruptedException, ExecutionException {
-
 		return firebaseService.getUserdata(slot);
 	}
+	
+	@RequestMapping(path =  "/something", method = RequestMethod.POST)
+
 	@PostMapping("/slot")
 	@ApiOperation(value="gives slot ",
 	notes="gives the values",
 	response=CarparkingSlot.class)
+	@ResponseBody
 	public String createcarparkingslot(@RequestBody CarparkingSlot carparkingslot) throws InterruptedException, ExecutionException {
 	
 		   
@@ -62,21 +67,28 @@ public class CarparkingSlotResource {
 
 	}
 	
+	@RequestMapping(path = "/something", method = RequestMethod.PUT)
+
 	@PutMapping("/slot")
 	@ApiOperation(value="modifies specific slot ",
 	notes="modifies the specific values",
 	response=CarparkingSlot.class)
+	@ResponseBody
 	public String updatecarparkingslot(@RequestBody CarparkingSlot carparkingslot) throws InterruptedException, ExecutionException {
 		return firebaseService.updateUserdata(carparkingslot);
 
 		
 	}
+	
+	@RequestMapping(path = "/something", method = RequestMethod.DELETE)
+
 	@DeleteMapping("/slot")
 	@ApiOperation(value="deletes the users ",
 	notes="deletes  the specific values",
 	response=User.class)
-	public String deletecarparkingslot(@RequestHeader() String slot) throws InterruptedException, ExecutionException {
-		return firebaseService.deleteUserdata(slot);
+	@ResponseBody
+	public String deletecarparkingslot() throws InterruptedException, ExecutionException {
+		return firebaseService.deleteUserdata();
 	}
 }
 
