@@ -91,7 +91,7 @@ public class FirebaseService {
 		}
          
          
-		return "document with id has been deleted";
+		return "Documents have been deleted";
 
 		
 	}
