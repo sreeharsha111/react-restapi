@@ -1,19 +1,16 @@
 package com.spring.project.carparking.slot.service;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 
 import javax.annotation.PostConstruct;
 
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
 
 @Service
-@CrossOrigin(origins="*")
 
 public class FirebaseInitialize {
      @PostConstruct
@@ -24,7 +21,7 @@ public class FirebaseInitialize {
 		
 		FirebaseOptions options=new FirebaseOptions.Builder()
 				.setCredentials(GoogleCredentials.fromStream(serviceAccount))
-				.setDatabaseUrl("https://dashboard-dddd0.firebaseio.com")
+				.setDatabaseUrl("https://parkingproj-530bd.firebaseio.com")
 				.build();
 		FirebaseApp.initializeApp(options);
 		

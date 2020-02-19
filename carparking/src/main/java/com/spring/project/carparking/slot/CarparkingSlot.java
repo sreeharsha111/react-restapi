@@ -1,13 +1,8 @@
 package com.spring.project.carparking.slot;
 
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
 
 //import com.spring.project.carparking.location.CarparkingLocation;
 
@@ -15,34 +10,34 @@ import javax.persistence.SequenceGenerator;
 public class CarparkingSlot {
 
 	@Id
-	private String slot;
-	private String userid;
+	private String Slot_no;
+	private String Email;
 	
 
 	
 	public CarparkingSlot() {
 		super();
 	}
-	public CarparkingSlot(String slot,String userid)
+	public CarparkingSlot(String Slot_no,String Email)
 	{
 		super();
 		
 		
-		this.slot=slot;
-		this.userid=userid;
+		this.Slot_no=Slot_no;
+		this.Email=Email;
 	
 	}
-	public String getUserid() {
-		return userid;
+	public String getEmail() {
+		return Email;
 	}
-	public void setUserid(String userid) {
-		this.userid = userid;
+	public void setEmail(String Email) {
+		this.Email = Email;
 	}
-	public String getSlot() {
-		return slot;
+	public String getSlot_no() {
+		return Slot_no;
 	}
-	public void setSlot(String slot) {
-		this.slot = slot;
+	public void setSlot_no(String Slot_no) {
+		this.Slot_no = Slot_no;
 	}
 
 
