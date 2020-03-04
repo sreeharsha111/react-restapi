@@ -27,18 +27,19 @@ public class CarparkingSlot {
 		this.Email=Email;
 	
 	}
-	public String getEmail() {
-		return Email;
-	}
-	public void setEmail(String Email) {
-		this.Email = Email;
-	}
 	public String getSlot_no() {
 		return Slot_no;
 	}
-	public void setSlot_no(String Slot_no) {
-		this.Slot_no = Slot_no;
+	public void setSlot_no(String slot_no) {
+		Slot_no = slot_no;
 	}
+	public String getEmail() {
+		return Email;
+	}
+	public void setEmail(String email) {
+		Email = email;
+	}
+	
 
 
 

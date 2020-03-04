@@ -11,6 +11,11 @@ public class WelcomeController {
 	
 	@GetMapping("/welcome")
 	public String welcome() {
+		return "NewFi";
+	
+	} 
+	@GetMapping("/login")
+	public String login() {
 		return "homepage";
 	
 	} 
@@ -20,11 +25,17 @@ public class WelcomeController {
 		return "display";
 	
 	} 
-	@GetMapping("/logoutprocess.jsp")
+	@GetMapping("/logout")
 	public String loginMessage1() {
 		return "logoutprocess";
 	
 	} 
+	@GetMapping("/sam")
+	public String sorry() {
+		return "sam";
+	
+	}
+	
 	
 	
 

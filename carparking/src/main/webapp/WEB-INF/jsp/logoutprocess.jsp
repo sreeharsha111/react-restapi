@@ -4,13 +4,16 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
-<script type= "text/javascript">
+<title>log out</title>
+<!--   <script type= "text/javascript">
+ 
 history.pushState(null,null,location.href);
+window.onbeforeunload = function() { return "Your work will be lost."; };
+
 window.onpopstate=function(){
 	history.go(1);
 };
-</script>
+</script>-->
 </head>
 <body>
 	<%
@@ -18,12 +21,25 @@ window.onpopstate=function(){
       session.invalidate();
 
         %>
+        <jsp:include page="temp1.jsp"></jsp:include>
+        	<div class="main-banner" id="top">
+        <img id="bg-video"
+             src="https://mms.businesswire.com/media/20190829005587/en/729412/23/SAG_Corporate_Logo_Mar19_tcm389-177647.jpg">
+        </img>
+
+        <div class="video-overlay header-text">
+            <div class="caption"><br><br><br>
+          <div class="container" align="center">
 
 	<h1>
-		<font color="Red">You are Sucessfully logged out...</font>
+		You have Successfully logged out...
 	</h1>
 
-	<a href="welcome">Go-Back To Home Page</a>
+</div>
+                </div>
+                </div>
+                   </div>
+    </div>
 
 </body>
 </html>

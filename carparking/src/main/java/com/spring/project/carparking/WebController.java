@@ -1,4 +1,4 @@
-package com.spring.project.carparking;
+	package com.spring.project.carparking;
 
 
 import javax.servlet.http.HttpServlet;
@@ -11,11 +11,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class WebController extends HttpServlet {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 
 	@RequestMapping(value = "/redirect", method = RequestMethod.POST)
 
@@ -39,7 +34,12 @@ public class WebController extends HttpServlet {
 	}
 	
 	@RequestMapping(value = "/logout", method = RequestMethod.POST)
-	public String logout() {
+	public String logout() { 
 		return "logoutprocess";
+	}
+	
+	@RequestMapping(value = "/sam", method = RequestMethod.POST)
+	public String sorry() {
+		return "sam";
 	}
 }

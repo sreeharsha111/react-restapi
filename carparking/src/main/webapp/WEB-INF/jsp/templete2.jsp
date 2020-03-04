@@ -22,7 +22,7 @@
 #page-wrapper {
     width: 100%;        
     padding: 0;
-    background-color: #fff;
+    background-color: ;
 }
 
 @media(min-width:768px) {
@@ -50,7 +50,7 @@
     padding-top: 20px;
     padding-bottom: 20px;
     line-height: 20px;
-    color: #fff;
+    color: ;
 }
 
 .top-nav>li>a:hover,
@@ -58,7 +58,7 @@
 .top-nav>.open>a,
 .top-nav>.open>a:hover,
 .top-nav>.open>a:focus {
-    color: #fff;
+    color: ;
     background-color: #1a242f;
 }
 
@@ -70,14 +70,14 @@
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     background-color: #fff;
-    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+   -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
     box-shadow: 0 6px 12px rgba(0,0,0,.175);
 }
-
+/*
 .top-nav>.open>.dropdown-menu>li>a {
     white-space: normal;
 }
-
+*/
 /* Side Navigation */
 
 @media(min-width:768px) {
@@ -91,7 +91,7 @@
         border-radius: 0;
         border-top: 1px rgba(0,0,0,.5) solid;
         overflow-y: auto;
-        background-color: #222;
+        background-color:rgba(73,116,255,1)	;
         /*background-color: #5A6B7D;*/
         bottom: 0;
         overflow-x: hidden;
@@ -120,7 +120,7 @@
     padding: 10px 15px 10px 38px;
     text-decoration: none;
     /*color: #999;*/
-    color: #fff;    
+    color: #;    
 }
 
 .side-nav>li>ul>li>a:hover {
@@ -165,7 +165,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
+        <div class= "navbar-header"  > 
             <a class="navbar-brand" >
                 <img src=https://mms.businesswire.com/media/20190829005587/en/729412/23/SAG_Corporate_Logo_Mar19_tcm389-177647.jpg alt="LOGO"">
             </a>

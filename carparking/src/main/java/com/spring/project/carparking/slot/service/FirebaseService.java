@@ -1,12 +1,15 @@
 package com.spring.project.carparking.slot.service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
+import org.hibernate.engine.profile.Fetch;
 import org.springframework.stereotype.Service;
-
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import com.google.firebase.database.ValueEventListener;
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.DocumentSnapshot;
@@ -16,23 +19,35 @@ import com.google.cloud.firestore.QueryDocumentSnapshot;
 import com.google.cloud.firestore.QuerySnapshot;
 import com.google.cloud.firestore.WriteResult;
 import com.google.firebase.cloud.FirestoreClient;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.spring.project.carparking.slot.CarparkingSlot;
 
-import com.spring.project.carparking.slot.CarparkingSlot;;
-@Service 
+import springfox.documentation.spring.web.json.Json;;
+@Service
 public class FirebaseService {
 	public String saveUserdata (CarparkingSlot carparkingslot) throws InterruptedException ,ExecutionException {
 		Firestore dbFirestore =FirestoreClient.getFirestore();
-			ApiFuture<WriteResult> collectionsApiFuture = dbFirestore.collection("ParkingDB").document(carparkingslot.getSlot_no()).set(carparkingslot);
+			ApiFuture<WriteResult> collectionsApiFuture = dbFirestore.collection("Gmailuserlist").document(carparkingslot.getSlot_no()).set(carparkingslot);
 			
 			return  collectionsApiFuture.get().getUpdateTime().toString();
 		}
-	public CarparkingSlot getUserdata(String slot) throws InterruptedException, ExecutionException {
+/*public String saveuserdata1(String Email) {
+		Firestore dbFirestore =FirestoreClient.getFirestore();
+		 Map<String, Object> data0 = new HashMap<>();
+	        data0.put("Email", Email);
+	        dbFirestore.collection("Gmailuserlist").add(data0);
+			return Email;
+        
+} */
+/*	public CarparkingSlot getUserdata(String slot) throws InterruptedException, ExecutionException {
 		Firestore dbFirestore =FirestoreClient.getFirestore();
 		DocumentReference documentReference = dbFirestore.collection("ParkingDB").document(slot);
 		ApiFuture<DocumentSnapshot> future = documentReference.get();
 		DocumentSnapshot document = future.get();
 		CarparkingSlot carparkingSlot = null;
-		if(document.exists()) {
+		if(document.exists()) {		
 			carparkingSlot =document.toObject(CarparkingSlot.class);
 			return carparkingSlot;
 		} 
@@ -40,7 +55,42 @@ public class FirebaseService {
 			return null;
 		}
 		}
-			 
+			 */
+
+
+public List<Object> getUserdata() throws InterruptedException, ExecutionException{
+	Firestore dbFirestore =FirestoreClient.getFirestore();
+
+	 ApiFuture<QuerySnapshot> future = dbFirestore.collection("ParkingDB").whereGreaterThan("Slot_no", "").get();
+     List<QueryDocumentSnapshot> documents = future.get().getDocuments();
+		List<Object> carparkingSlot = new ArrayList<Object>();
+		for (QueryDocumentSnapshot document : documents) {
+			carparkingSlot.add(document);
+			  System.out.println(document.getId() + " => " + document.toObject(CarparkingSlot.class));
+			}
+		  System.out.println(carparkingSlot);
+
+return carparkingSlot;
+}
+	/*public CarparkingSlot getuserdata2() throws InterruptedException, ExecutionException {
+		Firestore dbFirestore =FirestoreClient.getFirestore();
+		String url = "https://firestore.googleapis.com/v1/projects/parkingproj-530bd/databases/(default)/ParkingDB";
+		
+		
+        ApiFuture<QuerySnapshot> future = dbFirestore.collection("ParkingDB").whereGreaterThan("Slot_no", "").get();
+        List<QueryDocumentSnapshot> documents = future.get().getDocuments();
+       
+        for(QueryDocumentSnapshot document : documents) { 
+          
+        	System.out.print(document.getString("Slot_no"));
+        	System.out.print(document.getString("Email"));
+        	System.out.println();
+             }
+        
+
+        return null;
+
+	}*/
 			
 	
 	public String updateUserdata(CarparkingSlot carparkingslot) throws InterruptedException ,ExecutionException {
