@@ -21,7 +21,7 @@ public class FirebaseInitialize {
 		
 		FirebaseOptions options=new FirebaseOptions.Builder()
 				.setCredentials(GoogleCredentials.fromStream(serviceAccount))
-				.setDatabaseUrl("https://parkingproj-530bd.firebaseio.com")
+				.setDatabaseUrl("")
 				.build();
 		FirebaseApp.initializeApp(options);
 		
